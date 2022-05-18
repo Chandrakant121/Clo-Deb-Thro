@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>debounce</title>
+    <style>
+        .container>#search {
+            width: 40%;
+            padding: 10px;
+            margin: auto;
+            text-align: center;
+            margin-top: 30px;
+            border: 2px solid teal;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #result {
+            border: 1px solid black;
+            width: 50%;
+            margin: auto;
+            margin-top: 20px;
+            height: 200px;
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input placeholder="Wait for 5 Sec" type="text" oninput="debounce(Search)" id="search">
+    </div>
+    <div id="result">
+        <!-- Showing content  -->
+    </div>
+</body>
+
+</html>
+<script>
+
+    function Search() {
+        var data = document.getElementById("search").value;
+        document.getElementById("result").textContent = data;
+    }
+    function debounce(e) {
+        if (t) {
+            clearTimeout(t);
+        }
+        var t = setTimeout(function () {
+            e();
+        }, 5000);
+    }
+
+</script>
